@@ -1,6 +1,6 @@
 package com.company;
 
-public class Eletronico extends Produto{
+public class Eletronico extends Produto {
 
     private String cor;
     private String tamanho;
@@ -8,6 +8,23 @@ public class Eletronico extends Produto{
     private int som;
 
     private boolean ligado = false;
+
+    int tamanhoNumeroDeSerie = 100;
+    int array[] = new int[tamanhoNumeroDeSerie];
+
+    public Eletronico() {
+        for (int i = 0; i <tamanhoNumeroDeSerie; i++) array[i] = i + 1;
+    }
+    public int next(){
+        if (tamanhoNumeroDeSerie == 0) throw new RuntimeException("Nao a mais numeros");
+        // amarzena em x um numero de  0 a tamanhoNumeroDeSerie
+        int x = (int)(Math.random() * tamanhoNumeroDeSerie);
+        // grava o resultado a retornar
+        int numeroDeSerie = array[x];
+        // diminui o array e substitui o elemento sorteado
+        array[x] = array[--tamanhoNumeroDeSerie];
+        return numeroDeSerie;
+    }
 
     public Eletronico (String tipo, String fabricante, float preco, String cor, String tamanho, int numeroDeSerie) {
         super(tipo, fabricante, preco);

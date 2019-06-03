@@ -1,20 +1,22 @@
 package com.company;
 
 public class Alimento extends Produto {
-    private float peso;
+    private String peso;
     private int codigoDeBarra;
 
-    public Alimento (String tipo, String fabricante, float preco, float peso, int codigoDeBarra){
+    public Alimento(){}
+
+    public Alimento (String tipo, String fabricante, float preco, String peso, int codigoDeBarra){
         super(tipo, fabricante, preco);
         this.peso = peso;
         this.codigoDeBarra = codigoDeBarra;
     }
 
-    public float getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 

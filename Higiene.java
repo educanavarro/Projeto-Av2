@@ -2,10 +2,12 @@ package com.company;
 
 public class Higiene extends Produto{
     private String nome;
-    private float pesoLiquido;
+    private String pesoLiquido;
     private int codigoDeBarra;
 
-    public Higiene (String tipo, String fabricante, float preco, float pesoLiquido, int codigoDeBarra){
+    public Higiene(){}
+
+    public Higiene (String tipo, String fabricante, float preco, String pesoLiquido, int codigoDeBarra){
         super(tipo, fabricante, preco);
         this.pesoLiquido = pesoLiquido;
         this.codigoDeBarra = codigoDeBarra;
@@ -19,11 +21,11 @@ public class Higiene extends Produto{
         this.nome = nome;
     }
 
-    public float getPesoLiquido() {
+    public String getPesoLiquido() {
         return pesoLiquido;
     }
 
-    public void setPesoLiquido(float pesoLiquido) {
+    public void setPesoLiquido(String pesoLiquido) {
         this.pesoLiquido = pesoLiquido;
     }
 
