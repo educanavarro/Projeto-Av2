@@ -26,11 +26,11 @@ public class Main {
             } else if (opcao.equals("2")) {
                 ExibirCarrinho();
             } else if (opcao.equals("3")) {
-                ExibirMenuPrincipal();
+                RemoverProduto();
             } else if (opcao.equals("4")) {
-                ExibirMenuPrincipal();
+                LimparCarrinho();
             } else if (opcao.equals("5")) {
-                ExibirMenuPrincipal();
+                FinalizarPedido();
             }
         } while (!opcao.toUpperCase().equals("S"));
     }
@@ -95,6 +95,11 @@ public class Main {
         System.out.println("--------------------------------------------------");
         System.out.println("Carrinho de Compras");
         System.out.println("--------------------------------------------------");
+        System.out.print("Deseja comprar? (S/N) ");
+
+        if (input.nextLine().toUpperCase().equals("S")) {
+
+        }
         produtos.add(carrinhoDeCompras);
     }
 
@@ -106,5 +111,14 @@ public class Main {
                 produto.ExibirInformacoes();
             }
         }
+
+    private static void RemoverProduto() {
+    }
+
+    private static void LimparCarrinho() {
+    }
+
+    private static void FinalizarPedido() {
+    }
 
 }
