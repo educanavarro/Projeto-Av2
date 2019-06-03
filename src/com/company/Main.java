@@ -29,6 +29,8 @@ public class Main {
                 ExibirMenuPrincipal();
             } else if (opcao.equals("4")) {
                 ExibirMenuPrincipal();
+            } else if (opcao.equals("5")) {
+                ExibirMenuPrincipal();
             }
         } while (!opcao.toUpperCase().equals("S"));
     }
@@ -41,7 +43,8 @@ public class Main {
         System.out.println("[1] - Comprar Produto");
         System.out.println("[2] - Exibir Conteúdo do Carrinho");
         System.out.println("[3] - Remover Produto");
-        System.out.println("[4] - Finalizar Pedido");
+        System.out.println("[4] - Limpar Carrinho");
+        System.out.println("[5] - Finalizar Pedido");
         System.out.println("[S] - Sair");
         System.out.println("");
     }

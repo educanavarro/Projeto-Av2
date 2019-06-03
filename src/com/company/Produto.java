@@ -24,7 +24,7 @@ public class Produto {
         System.out.println("--------------------------------------------------");
         System.out.println("Tipo: " + this.getTipo());
         System.out.println("Fabricante: " + this.getFabricante());
-        System.out.println("Preço: " + this.getPreco());
+        System.out.println("Preço: R$ " + this.getPreco());
     }
 
 

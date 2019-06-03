@@ -12,6 +12,19 @@ public class Alimento extends Produto {
         this.codigoDeBarra = codigoDeBarra;
     }
 
+    public void ExibirInformacoes() {
+        ExibirInformacoes("Alimentos");
+    }
+
+    public void ExibirInformacoes(String cabecalho) {
+        System.out.println("--------------------------------------------------");
+        System.out.println(cabecalho);
+        System.out.println("--------------------------------------------------");
+        System.out.println("Fabricante: " + this.getFabricante());
+        System.out.println("Peso: " + this.getPeso());
+        System.out.println("Preço: R$ " + this.getPreco());
+    }
+
     public String getPeso() {
         return peso;
     }

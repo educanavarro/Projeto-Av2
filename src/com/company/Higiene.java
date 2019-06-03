@@ -13,6 +13,20 @@ public class Higiene extends Produto{
         this.codigoDeBarra = codigoDeBarra;
     }
 
+    public void ExibirInformacoes() {
+        ExibirInformacoes("Higiene");
+    }
+
+    public void ExibirInformacoes(String cabecalho) {
+        System.out.println("--------------------------------------------------");
+        System.out.println(cabecalho);
+        System.out.println("--------------------------------------------------");
+        System.out.println("Fabricante: " + this.getFabricante());
+        System.out.println("Peso Liquido: " + this.getPesoLiquido());
+        System.out.println("Preço: R$ " + this.getPreco());
+    }
+
+
     public String getNome() {
         return nome;
     }

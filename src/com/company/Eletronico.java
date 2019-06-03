@@ -33,6 +33,20 @@ public class Eletronico extends Produto {
         this.numeroDeSerie = numeroDeSerie;
     }
 
+    public void ExibirInformacoes() {
+        ExibirInformacoes("Eletronicos");
+    }
+
+    public void ExibirInformacoes(String cabecalho) {
+        System.out.println("--------------------------------------------------");
+        System.out.println(cabecalho);
+        System.out.println("--------------------------------------------------");
+        System.out.println("Fabricante: " + this.getFabricante());
+        System.out.println("Cor: " + this.getCor());
+        System.out.println("Tamanho: " + this.getTamanho());
+        System.out.println("Preço: R$ " + this.getPreco());
+    }
+
     public void ligar(){
         ligado=true;
     }
