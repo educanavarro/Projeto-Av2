@@ -1,1 +1,1 @@
-# Projeto Av2: Carrinho de Compras vBeta
+# Projeto Av2: Carrinho de Compras
