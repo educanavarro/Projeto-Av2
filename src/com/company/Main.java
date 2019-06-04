@@ -76,10 +76,10 @@ public class Main {
         tveSom.add(new TVeSom("Som", "Philco", 540.00f, "Preto", "28  x 31", 56603725));
         feijoes.add(new Feijao("Feijão", "Turquesa", 3.99f, "1 KG", 531253776));
         feijoes.add(new Feijao("Feijão", "Kicaldo", 6.99f, "1 KG", 490157009));
-        carnes.add(new Carne("Arroz Integral", "Tio João", 4.75f, "1 KG", 107998509));
-        carnes.add(new Carne("Arroz", "Biju", 3.99f, "1 KG", 100709348));
-        arrozs.add(new Arroz("Carne", "Maturatta", 19.98f, "1 KG", 503521587));
-        arrozs.add(new Arroz("Carne", "Masterboi", 17.98f, "1 KG", 509070508));
+        arrozs.add(new Arroz("Arroz Integral", "Tio João", 4.75f, "1 KG", 107998509));
+        arrozs.add(new Arroz("Arroz", "Biju", 3.99f, "1 KG", 100709348));
+        carnes.add(new Carne("Carne", "Maturatta", 19.98f, "1 KG", 503521587));
+        carnes.add(new Carne("Carne", "Masterboi", 17.98f, "1 KG", 509070508));
         cremeDentals.add(new CremeDental("Creme Dental", "Colgate", 5.39f, "70g", 860215789));
         cremeDentals.add(new CremeDental("Creme Dental", "Sorriso", 5.59f, "70g", 897008905));
         shampoos.add(new Shampoo("Shampoo", "Pantene", 9.15f, "175ml", 707094307));
