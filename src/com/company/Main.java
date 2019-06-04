@@ -7,8 +7,12 @@ public class Main {
     private static ArrayList<Produto> carrinho = new ArrayList<>();
     private static ArrayList<Smartphone> smartPhones = new ArrayList<>();
     private static ArrayList<TVeSom> tveSom = new ArrayList<>();
-    private static ArrayList<Alimento> alimentos = new ArrayList<>();
-    private static ArrayList<Higiene> higienes = new ArrayList<>();
+    private static ArrayList<Feijao> feijoes = new ArrayList<>();
+    private static ArrayList<Carne> carnes = new ArrayList<>();
+    private static ArrayList<Arroz> arrozs = new ArrayList<>();
+    private static ArrayList<CremeDental> cremeDentals = new ArrayList<>();
+    private static ArrayList<Shampoo> shampoos = new ArrayList<>();
+    private static ArrayList<Sabonete> sabonetes = new ArrayList<>();
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -46,7 +50,7 @@ public class Main {
         System.out.println("[4] - Limpar Carrinho");
         System.out.println("[5] - Finalizar Pedido");
         System.out.println("[S] - Sair");
-        System.out.println("");
+        System.out.println();
     }
 
     private static void CarregarDadosIniciais() {
@@ -70,37 +74,18 @@ public class Main {
         tveSom.add(new TVeSom("Som", "JBL", 1649.50f, "Preto", "25,45 x 45,85", 31772866));
         tveSom.add(new TVeSom("Som", "Panasonic", 861.00f, "Preto", "50 x 83", 49370784));
         tveSom.add(new TVeSom("Som", "Philco", 540.00f, "Preto", "28  x 31", 56603725));
-        alimentos.add(new Alimento("Feijão", "Turquesa", 3.99f, "1 KG", 531253776));
-        alimentos.add(new Alimento("Feijão", "Kicaldo", 6.99f, "1 KG", 490157009));
-        alimentos.add(new Alimento("Arroz Integral", "Tio João", 4.75f, "1 KG", 107998509));
-        alimentos.add(new Alimento("Arroz", "Biju", 3.99f, "1 KG", 100709348));
-        alimentos.add(new Alimento("Carne", "Maturatta", 19.98f, "1 KG", 503521587));
-        alimentos.add(new Alimento("Carne", "Masterboi", 17.98f, "1 KG", 509070508));
-        higienes.add(new Higiene("Creme Dental", "Colgate", 5.39f, "70g", 860215789));
-        higienes.add(new Higiene("Creme Dental", "Sorriso", 5.59f, "70g", 897008905));
-        higienes.add(new Higiene("Shampoo", "Pantene", 9.15f, "175ml", 707094307));
-        higienes.add(new Higiene("Shampoo", "Palmolive", 17.36f, "200ml", 750975122));
-        higienes.add(new Higiene("Sabonete", "Dove", 1.99f, "90g", 670775210));
-        higienes.add(new Higiene("Sabonete", "Nivea", 1.89f, "90g", 400580853));
-    }
-
-    private static void ComprarProduto(){
-        if (produtos.size() >= 10) {
-            System.out.println("Quantidade máxima de produtos excedido!");
-            input.nextLine();
-            return;
-        }
-        Produto carrinhoDeCompras = new Produto();
-
-        System.out.println("--------------------------------------------------");
-        System.out.println("Carrinho de Compras");
-        System.out.println("--------------------------------------------------");
-        System.out.print("Deseja comprar? (S/N) ");
-
-        if (input.nextLine().toUpperCase().equals("S")) {
-
-        }
-        produtos.add(carrinhoDeCompras);
+        feijoes.add(new Feijao("Feijão", "Turquesa", 3.99f, "1 KG", 531253776));
+        feijoes.add(new Feijao("Feijão", "Kicaldo", 6.99f, "1 KG", 490157009));
+        carnes.add(new Carne("Arroz Integral", "Tio João", 4.75f, "1 KG", 107998509));
+        carnes.add(new Carne("Arroz", "Biju", 3.99f, "1 KG", 100709348));
+        arrozs.add(new Arroz("Carne", "Maturatta", 19.98f, "1 KG", 503521587));
+        arrozs.add(new Arroz("Carne", "Masterboi", 17.98f, "1 KG", 509070508));
+        cremeDentals.add(new CremeDental("Creme Dental", "Colgate", 5.39f, "70g", 860215789));
+        cremeDentals.add(new CremeDental("Creme Dental", "Sorriso", 5.59f, "70g", 897008905));
+        shampoos.add(new Shampoo("Shampoo", "Pantene", 9.15f, "175ml", 707094307));
+        shampoos.add(new Shampoo("Shampoo", "Palmolive", 17.36f, "200ml", 750975122));
+        sabonetes.add(new Sabonete("Sabonete", "Dove", 1.99f, "90g", 670775210));
+        sabonetes.add(new Sabonete("Sabonete", "Nivea", 1.89f, "90g", 400580853));
     }
 
     private static void ExibirCarrinho() {
@@ -108,9 +93,9 @@ public class Main {
         System.out.println("Produtos no Carrinho");
         System.out.println("--------------------------------------------------");
         for (Produto produto : carrinho) {
-                produto.ExibirInformacoes();
-            }
+            produto.ExibirInformacoes();
         }
+    }
 
     private static void RemoverProduto() {
     }
@@ -121,4 +106,252 @@ public class Main {
     private static void FinalizarPedido() {
     }
 
-}
+    private static void ComprarProduto() {
+        if (produtos.size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido!");
+            input.nextLine();
+            return;
+        }
+        Produto listaDeCompras = new Produto();
+        CarregarDadosIniciais();
+        String opcao = "";
+
+        do {
+            ExibirMenuDeCompras();
+            System.out.print("Digite a opção valida: ");
+            opcao = input.nextLine();
+
+            if (opcao.equals("1")) {
+                ExibirSmarphones();
+            } else if (opcao.equals("2")) {
+                ExibirTVeSom();
+            } else if (opcao.equals("3")) {
+                ExibirFeijao();
+            } else if (opcao.equals("4")) {
+                ExibirArroz();
+            } else if (opcao.equals("5")) {
+                ExibirCarne();
+            } else if (opcao.equals("6")) {
+                ExibirCremeDental();
+            } else if (opcao.equals("7")) {
+                ExibirShampoo();
+            } else if (opcao.equals("8")) {
+                ExibirSabonete();
+            }
+        } while (!opcao.toUpperCase().equals("V"));
+    }
+
+
+    private static void ExibirMenuDeCompras() {
+        System.out.println("--------------------------------------------------");
+        System.out.println("Carrinho de Compras");
+        System.out.println("--------------------------------------------------");
+        System.out.println("O Que Deseja comprar?");
+        System.out.println("[1] - Smaphone");
+        System.out.println("[2] - TV e Som");
+        System.out.println("[3] - Feijão");
+        System.out.println("[4] - Arroz");
+        System.out.println("[5] - Carne");
+        System.out.println("[6] - Creme Dental");
+        System.out.println("[7] - Shampoo");
+        System.out.println("[8] - Sabonete");
+        System.out.println("[V] - Voltar");
+        System.out.println();
+
+    }
+
+    private static void ExibirSmarphones() {
+        Smartphone smartphoneSelecionado = null;
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Smarphones");
+            System.out.println("--------------------------------------------------");
+
+            for (int i = 0; i < smartPhones.size(); i++) {
+                Smartphone smartphone = smartPhones.get(i);
+
+                 {
+                    smartphone.ExibirInformacoes("Smarphone [" + i + "]");
+                }
+            }
+
+            System.out.print("\nInforme a opção desejada: ");
+            smartphoneSelecionado = smartPhones.get(Integer.parseInt(input.nextLine()));
+
+        } while (smartphoneSelecionado.getPhoneSelecionado() == true);
+
+
+    }
+    private static void ExibirTVeSom() {
+        TVeSom tveSomSelecionado = null;
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("TV e Som");
+            System.out.println("--------------------------------------------------");
+
+            for (int i = 0; i < tveSom.size(); i++) {
+                TVeSom tvesom = tveSom.get(i);
+
+                {
+                    tvesom.ExibirInformacoes("TV e Som [" + i + "]");
+                }
+            }
+
+            System.out.print("\nInforme a opção desejada: ");
+            tveSomSelecionado = tveSom.get(Integer.parseInt(input.nextLine()));
+
+        } while (tveSomSelecionado.getTveSomSelecionado() == true);
+
+
+    }
+
+    private static void ExibirFeijao() {
+        Feijao feijaoSelecionado = null;
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Feijão");
+            System.out.println("--------------------------------------------------");
+
+            for (int i = 0; i < feijoes.size(); i++) {
+                Feijao feijao = feijoes.get(i);
+
+                {
+                    feijao.ExibirInformacoes("Feijão [" + i + "]");
+                }
+            }
+
+            System.out.print("\nInforme a opção desejada: ");
+            feijaoSelecionado = feijoes.get(Integer.parseInt(input.nextLine()));
+
+        } while (feijaoSelecionado.getFeijaoSelecionado() == true);
+
+
+    }
+
+    private static void ExibirArroz() {
+        Arroz arrozSelecionado = null;
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Arroz");
+            System.out.println("--------------------------------------------------");
+
+            for (int i = 0; i < arrozs.size(); i++) {
+                Arroz arroz = arrozs.get(i);
+
+                {
+                    arroz.ExibirInformacoes("Arroz [" + i + "]");
+                }
+            }
+
+            System.out.print("\nInforme a opção desejada: ");
+            arrozSelecionado = arrozs.get(Integer.parseInt(input.nextLine()));
+
+        } while (arrozSelecionado.getArrozSelecionado() == true);
+
+
+    }
+
+    private static void ExibirCarne() {
+        Carne carneSelecionado = null;
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Carnes");
+            System.out.println("--------------------------------------------------");
+
+            for (int i = 0; i < carnes.size(); i++) {
+                Carne carne = carnes.get(i);
+
+                {
+                    carne.ExibirInformacoes("Carnes [" + i + "]");
+                }
+            }
+
+            System.out.print("\nInforme a opção desejada: ");
+            carneSelecionado = carnes.get(Integer.parseInt(input.nextLine()));
+
+        } while (carneSelecionado.getCarneSelecionado() == true);
+
+
+    }
+
+    private static void ExibirCremeDental() {
+        CremeDental cremeDentalSelecionado = null;
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Creme Dental");
+            System.out.println("--------------------------------------------------");
+
+            for (int i = 0; i < cremeDentals.size(); i++) {
+                CremeDental cremeDental = cremeDentals.get(i);
+
+                {
+                    cremeDental.ExibirInformacoes("Creme Dental [" + i + "]");
+                }
+            }
+
+            System.out.print("\nInforme a opção desejada: ");
+            cremeDentalSelecionado = cremeDentals.get(Integer.parseInt(input.nextLine()));
+
+        } while (cremeDentalSelecionado.getCremeDentalSelecionado() == true);
+
+
+    }
+
+    private static void ExibirShampoo() {
+        Shampoo shampooSelecionado;
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Shampoo");
+            System.out.println("--------------------------------------------------");
+
+            for (int i = 0; i < shampoos.size(); i++) {
+                Shampoo shampoo = shampoos.get(i);
+
+                {
+                    shampoo.ExibirInformacoes("Shampoo [" + i + "]");
+                }
+            }
+
+            System.out.print("\nInforme a opção desejada: ");
+            shampooSelecionado = shampoos.get(Integer.parseInt(input.nextLine()));
+
+        } while (shampooSelecionado.getShampooSelecionado() == true);
+
+
+    }
+
+    private static void ExibirSabonete() {
+        Sabonete saboneteSelecionado = null;
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Sabonete");
+            System.out.println("--------------------------------------------------");
+
+            for (int i = 0; i < sabonetes.size(); i++) {
+                Sabonete sabonete = sabonetes.get(i);
+
+                {
+                    sabonete.ExibirInformacoes("Sabonete [" + i + "]");
+                }
+            }
+
+            System.out.print("\nInforme a opção desejada: ");
+            saboneteSelecionado = sabonetes.get(Integer.parseInt(input.nextLine()));
+
+        } while (saboneteSelecionado.getSaboneteSelecionado() == true);
+
+
+    }
+
+        }
+
+
+

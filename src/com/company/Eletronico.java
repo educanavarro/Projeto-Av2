@@ -1,6 +1,6 @@
 package com.company;
 
-public class Eletronico extends Produto {
+abstract class Eletronico extends Produto {
 
     private String cor;
     private String tamanho;
@@ -35,24 +35,9 @@ public class Eletronico extends Produto {
         this.numeroDeSerie = numeroDeSerie;
     }
 
-    public void ExibirInformacoes() {
-        ExibirInformacoes("Eletronicos");
-    }
-
-    public void ExibirInformacoes(String cabecalho) {
-        System.out.println("--------------------------------------------------");
-        System.out.println(cabecalho);
-        System.out.println("--------------------------------------------------");
-        System.out.println("Fabricante: " + this.getFabricante());
-        System.out.println("Cor: " + this.getCor());
-        System.out.println("Tamanho: " + this.getTamanho());
-        System.out.println("Preço: R$ " + this.getPreco());
-    }
-
     public void ligar(){
         ligado=true;
     }
-
     public void desligar(){
         if (ligado)
             ligado = true;
@@ -105,10 +90,10 @@ public class Eletronico extends Produto {
     public void setNumeroDeSerie(int numeroDeSerie) {
         this.numeroDeSerie = numeroDeSerie;
     }
+
     public int getSom() {
         return som;
     }
-
     public void setSom(int som) {
         this.som = som;
     }
@@ -116,7 +101,6 @@ public class Eletronico extends Produto {
     public boolean getLigado() {
         return ligado;
     }
-
     public void setLigado(boolean ligado) {
         this.ligado = ligado;
     }

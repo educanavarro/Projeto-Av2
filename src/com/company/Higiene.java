@@ -1,9 +1,11 @@
 package com.company;
 
-public class Higiene extends Produto{
+abstract class Higiene extends Produto{
     private String nome;
     private String pesoLiquido;
     private int codigoDeBarra;
+
+    private boolean higieneSelecionado = false;
 
     public Higiene(){}
 
@@ -13,24 +15,9 @@ public class Higiene extends Produto{
         this.codigoDeBarra = codigoDeBarra;
     }
 
-    public void ExibirInformacoes() {
-        ExibirInformacoes("Higiene");
-    }
-
-    public void ExibirInformacoes(String cabecalho) {
-        System.out.println("--------------------------------------------------");
-        System.out.println(cabecalho);
-        System.out.println("--------------------------------------------------");
-        System.out.println("Fabricante: " + this.getFabricante());
-        System.out.println("Peso Liquido: " + this.getPesoLiquido());
-        System.out.println("Preço: R$ " + this.getPreco());
-    }
-
-
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -38,7 +25,6 @@ public class Higiene extends Produto{
     public String getPesoLiquido() {
         return pesoLiquido;
     }
-
     public void setPesoLiquido(String pesoLiquido) {
         this.pesoLiquido = pesoLiquido;
     }
@@ -46,8 +32,14 @@ public class Higiene extends Produto{
     public int getCodigoDeBarra() {
         return codigoDeBarra;
     }
-
     public void setCodigoDeBarra(int codigoDeBarra) {
         this.codigoDeBarra = codigoDeBarra;
+    }
+
+    public boolean getHigieneSelecionado() {
+        return higieneSelecionado;
+    }
+    public void setHigieneSelecionado(boolean higieneSelecionado) {
+        this.higieneSelecionado = higieneSelecionado;
     }
 }
