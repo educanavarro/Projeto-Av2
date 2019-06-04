@@ -1,6 +1,6 @@
 package com.company;
 
-public class Produto {
+abstract class Produto {
     private String tipo;
     private String fabricante;
     private float preco;
