@@ -5,9 +5,9 @@ public class Smartphone extends Eletronico {
 
     private boolean phoneSelecionado = false;
 
-    public Smartphone() {}
+    public Smartphone() {} //construtor vazio//
 
-    public Smartphone (String tipo, String fabricante, float preco, String cor, String tamanho, int numeroDeSerie) {
+    public Smartphone (String tipo, String fabricante, float preco, String cor, String tamanho, int numeroDeSerie) { //construtor herdado de eletronico//
         super(tipo, fabricante, preco, cor, tamanho, numeroDeSerie);
     }
 

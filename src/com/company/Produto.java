@@ -6,13 +6,13 @@ public class Produto {
     private float preco;
 
     public Produto() {
-    }
+    } //construtor vazio//
 
     public Produto (String tipo, String fabricante, float preco) {
         this.tipo = tipo;
         this.fabricante = fabricante;
         this.preco = preco;
-    }
+    } //construtor generico//
 
     public void ExibirInformacoes() {
         ExibirInformacoes("Dados dos Produtos");

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    private static ArrayList<Produto> produtos = new ArrayList<>();
+    private static ArrayList<Produto> produtos = new ArrayList<>(); //Os ArrayList para listar e organiar os produtos//
     private static ArrayList<Produto> carrinho = new ArrayList<>();
     private static ArrayList<Smartphone> smartPhones = new ArrayList<>();
     private static ArrayList<TVeSom> tveSom = new ArrayList<>();
@@ -16,7 +16,7 @@ public class Main {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        CarregarDadosIniciais();
+        CarregarDadosIniciais(); //Carregamento inicial//
         String opcao = "";
 
         do {
@@ -25,7 +25,7 @@ public class Main {
             System.out.print("Informe a opção desejada: ");
             opcao = input.nextLine();
 
-            if (opcao.equals("1")) {
+            if (opcao.equals("1")) { //as opções do menu//
                 ComprarProduto();
             } else if (opcao.equals("2")) {
                 ExibirCarrinho();
@@ -53,7 +53,7 @@ public class Main {
         System.out.println();
     }
 
-    private static void CarregarDadosIniciais() {
+    private static void CarregarDadosIniciais() { //cadastro dos produtos//
         smartPhones.add(new Smartphone("Smarphone", "Samsung", 1539.99f, "Preto", "155.6 x 75.8", 350128700));
         smartPhones.add(new Smartphone("Smarphone", "Sony", 2497.75f, "Branco", "146 x 72", 357509532));
         smartPhones.add(new Smartphone("Smarphone", "Asus", 1278.89f, "Vermelho", "155.4 x 75.2", 359000821));
@@ -88,25 +88,7 @@ public class Main {
         sabonetes.add(new Sabonete("Sabonete", "Nivea", 1.89f, "90g", 400580853));
     }
 
-    private static void ExibirCarrinho() {
-        System.out.println("--------------------------------------------------");
-        System.out.println("Produtos no Carrinho");
-        System.out.println("--------------------------------------------------");
-        for (Produto produto : carrinho) {
-            produto.ExibirInformacoes();
-        }
-    }
-
-    private static void RemoverProduto() {
-    }
-
-    private static void LimparCarrinho() {
-    }
-
-    private static void FinalizarPedido() {
-    }
-
-    private static void ComprarProduto() {
+    private static void ComprarProduto() { //metodo de compras//
         if (produtos.size() >= 10) {
             System.out.println("Quantidade máxima de produtos excedido!");
             input.nextLine();
@@ -183,6 +165,7 @@ public class Main {
 
 
     }
+
     private static void ExibirTVeSom() {
         TVeSom tveSomSelecionado = null;
 
@@ -349,6 +332,24 @@ public class Main {
         } while (saboneteSelecionado.getSaboneteSelecionado() == true);
 
 
+    }
+
+    private static void ExibirCarrinho() {
+        System.out.println("--------------------------------------------------");
+        System.out.println("Produtos no Carrinho");
+        System.out.println("--------------------------------------------------");
+        for (Produto produto : carrinho) {
+            produto.ExibirInformacoes();
+        }
+    }
+
+    private static void RemoverProduto() {
+    }
+
+    private static void LimparCarrinho() {
+    }
+
+    private static void FinalizarPedido() {
     }
 
         }

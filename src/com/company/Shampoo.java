@@ -4,9 +4,9 @@ public class Shampoo extends Higiene {
 
     private boolean shampooSelecionado = false;
 
-    public Shampoo (){}
+    public Shampoo (){} //construtor vazio//
 
-    public Shampoo  (String tipo, String fabricante, float preco, String pesoLiquido, int codigoDeBarra){
+    public Shampoo  (String tipo, String fabricante, float preco, String pesoLiquido, int codigoDeBarra){ //construtor herdado de higiene//
         super(tipo, fabricante, preco, pesoLiquido, codigoDeBarra);}
 
     public void ExibirInformacoes() {

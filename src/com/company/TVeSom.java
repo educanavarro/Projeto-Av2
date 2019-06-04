@@ -5,9 +5,9 @@ public class TVeSom extends Eletronico {
 
     private boolean tveSomSelecionado = false;
 
-    public TVeSom(){}
+    public TVeSom(){} //construtor vazio//
 
-    public TVeSom(String tipo, String fabricante, float preco, String cor, String tamanho, int numeroDeSerie) {
+    public TVeSom(String tipo, String fabricante, float preco, String cor, String tamanho, int numeroDeSerie) { //construtor herdado de eletronico//
         super(tipo, fabricante, preco, cor, tamanho, numeroDeSerie);
     }
 

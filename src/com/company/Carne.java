@@ -4,9 +4,9 @@ public class Carne extends Alimento{
 
     private boolean carneSelecionado = false;
 
-    public Carne(){}
+    public Carne(){} //construtor vazio//
 
-    public Carne (String tipo, String fabricante, float preco, String peso, int codigoDeBarra){
+    public Carne (String tipo, String fabricante, float preco, String peso, int codigoDeBarra){ //construtor herdado de alimentos//
         super(tipo, fabricante, preco, peso, codigoDeBarra);
     }
     public void ExibirInformacoes() {
