@@ -88,24 +88,6 @@ public class Main {
         sabonetes.add(new Sabonete("Sabonete", "Nivea", 1.89f, "90g", 400580853));
     }
 
-    private static void ExibirCarrinho() {
-        System.out.println("--------------------------------------------------");
-        System.out.println("Produtos no Carrinho");
-        System.out.println("--------------------------------------------------");
-        for (Produto produto : carrinho) {
-            produto.ExibirInformacoes();
-        }
-    }
-
-    private static void RemoverProduto() {
-    }
-
-    private static void LimparCarrinho() {
-    }
-
-    private static void FinalizarPedido() {
-    }
-
     private static void ComprarProduto() {
         if (produtos.size() >= 10) {
             System.out.println("Quantidade máxima de produtos excedido!");
@@ -349,6 +331,24 @@ public class Main {
         } while (saboneteSelecionado.getSaboneteSelecionado() == true);
 
 
+    }
+
+    private static void ExibirCarrinho() {
+        System.out.println("--------------------------------------------------");
+        System.out.println("Produtos no Carrinho");
+        System.out.println("--------------------------------------------------");
+        for (Produto produto : carrinho) {
+            produto.ExibirInformacoes();
+        }
+    }
+
+    private static void RemoverProduto() {
+    }
+
+    private static void LimparCarrinho() {
+    }
+
+    private static void FinalizarPedido() {
     }
 
         }
