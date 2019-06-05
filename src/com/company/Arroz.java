@@ -4,9 +4,9 @@ public class Arroz extends Alimento {
 
     private boolean arrozSelecionado = false;
 
-    public Arroz(){} //construtor vazio//
+    public Arroz(){}
 
-    public Arroz (String tipo, String fabricante, float preco, String peso, int codigoDeBarra){ //construtor herdado de alimentos//
+    public Arroz (String tipo, String fabricante, float preco, String peso, int codigoDeBarra){
         super(tipo, fabricante, preco, peso, codigoDeBarra);
     }
 

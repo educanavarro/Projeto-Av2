@@ -3,10 +3,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    private static ArrayList<Produto> produtos = new ArrayList<>(); //Os ArrayList para listar e organiar os produtos//
-    private static ArrayList<Produto> carrinho = new ArrayList<>();
+    private static ArrayList<Produto> produtos = new ArrayList<>();
+    private static ArrayList<Carrinho> carrinho = new ArrayList<>();
     private static ArrayList<Smartphone> smartPhones = new ArrayList<>();
-    private static ArrayList<TVeSom> tveSom = new ArrayList<>();
+    private static ArrayList<TV> tvs = new ArrayList<>();
+    private static ArrayList<Som> soms = new ArrayList<>();
     private static ArrayList<Feijao> feijoes = new ArrayList<>();
     private static ArrayList<Carne> carnes = new ArrayList<>();
     private static ArrayList<Arroz> arrozs = new ArrayList<>();
@@ -16,7 +17,7 @@ public class Main {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        CarregarDadosIniciais(); //Carregamento inicial//
+        CarregarDadosIniciais();
         String opcao = "";
 
         do {
@@ -25,7 +26,7 @@ public class Main {
             System.out.print("Informe a opção desejada: ");
             opcao = input.nextLine();
 
-            if (opcao.equals("1")) { //as opções do menu//
+            if (opcao.equals("1")) {
                 ComprarProduto();
             } else if (opcao.equals("2")) {
                 ExibirCarrinho();
@@ -53,7 +54,7 @@ public class Main {
         System.out.println();
     }
 
-    private static void CarregarDadosIniciais() { //cadastro dos produtos//
+    private static void CarregarDadosIniciais() {
         smartPhones.add(new Smartphone("Smarphone", "Samsung", 1539.99f, "Preto", "155.6 x 75.8", 350128700));
         smartPhones.add(new Smartphone("Smarphone", "Sony", 2497.75f, "Branco", "146 x 72", 357509532));
         smartPhones.add(new Smartphone("Smarphone", "Asus", 1278.89f, "Vermelho", "155.4 x 75.2", 359000821));
@@ -64,16 +65,16 @@ public class Main {
         smartPhones.add(new Smartphone("Smarphone", "Xiaomi", 2158.99f, "Preto", "154.9 x 74.8", 359011138));
         smartPhones.add(new Smartphone("Smarphone", "Lenovo", 1688.57f, "Preto", "156.6 x 74.", 355570378));
         smartPhones.add(new Smartphone("Smarphone", "LG", 1205.99f, "Branco", "148.9 x 71.9", 357008010));
-        tveSom.add(new TVeSom("TV", "Sony", 1849.99f, "Preto", "63 x 97", 133839782));
-        tveSom.add(new TVeSom("TV", "LG", 1994.99f, "Preto", "71 x 113", 133718358));
-        tveSom.add(new TVeSom("TV", "Samsung", 1799.98f, "Preto", "63,6 x 97", 134240667));
-        tveSom.add(new TVeSom("TV", "Toshiba", 861.79f, "Preto", "54 x 85,2", 133839782));
-        tveSom.add(new TVeSom("TV", "Philips", 1329.89f, "Preto", "96,9 x 56,2", 133807721));
-        tveSom.add(new TVeSom("Som", "Sony", 1650.88f, "Azul", "39 x 68", 43925375));
-        tveSom.add(new TVeSom("Som", "LG", 2583.98f, "Preto", "65 x 45.7", 26661992));
-        tveSom.add(new TVeSom("Som", "JBL", 1649.50f, "Preto", "25,45 x 45,85", 31772866));
-        tveSom.add(new TVeSom("Som", "Panasonic", 861.00f, "Preto", "50 x 83", 49370784));
-        tveSom.add(new TVeSom("Som", "Philco", 540.00f, "Preto", "28  x 31", 56603725));
+        tvs.add(new TV("TV", "Sony", 1849.99f, "Preto", "63 x 97", 133839782));
+        tvs.add(new TV("TV", "LG", 1994.99f, "Preto", "71 x 113", 133718358));
+        tvs.add(new TV("TV", "Samsung", 1799.98f, "Preto", "63,6 x 97", 134240667));
+        tvs.add(new TV("TV", "Toshiba", 861.79f, "Preto", "54 x 85,2", 133839782));
+        tvs.add(new TV("TV", "Philips", 1329.89f, "Preto", "96,9 x 56,2", 133807721));
+        soms.add(new Som("Som", "Sony", 1650.88f, "Azul", "39 x 68", 43925375));
+        soms.add(new Som("Som", "LG", 2583.98f, "Preto", "65 x 45.7", 26661992));
+        soms.add(new Som("Som", "JBL", 1649.50f, "Preto", "25,45 x 45,85", 31772866));
+        soms.add(new Som("Som", "Panasonic", 861.00f, "Preto", "50 x 83", 49370784));
+        soms.add(new Som("Som", "Philco", 540.00f, "Preto", "28  x 31", 56603725));
         feijoes.add(new Feijao("Feijão", "Turquesa", 3.99f, "1 KG", 531253776));
         feijoes.add(new Feijao("Feijão", "Kicaldo", 6.99f, "1 KG", 490157009));
         arrozs.add(new Arroz("Arroz Integral", "Tio João", 4.75f, "1 KG", 107998509));
@@ -88,13 +89,13 @@ public class Main {
         sabonetes.add(new Sabonete("Sabonete", "Nivea", 1.89f, "90g", 400580853));
     }
 
-    private static void ComprarProduto() { //metodo de compras//
+    private static void ComprarProduto() {
         if (produtos.size() >= 10) {
             System.out.println("Quantidade máxima de produtos excedido!");
             input.nextLine();
             return;
         }
-        Produto listaDeCompras = new Produto();
+        Carrinho listaDeCompras = new Carrinho();
         CarregarDadosIniciais();
         String opcao = "";
 
@@ -106,18 +107,20 @@ public class Main {
             if (opcao.equals("1")) {
                 ExibirSmarphones();
             } else if (opcao.equals("2")) {
-                ExibirTVeSom();
+                ExibirTV();
             } else if (opcao.equals("3")) {
-                ExibirFeijao();
+                ExibirSom();
             } else if (opcao.equals("4")) {
-                ExibirArroz();
+                ExibirFeijao();
             } else if (opcao.equals("5")) {
-                ExibirCarne();
+                ExibirArroz();
             } else if (opcao.equals("6")) {
-                ExibirCremeDental();
+                ExibirCarne();
             } else if (opcao.equals("7")) {
-                ExibirShampoo();
+                ExibirCremeDental();
             } else if (opcao.equals("8")) {
+                ExibirShampoo();
+            } else if (opcao.equals("9")) {
                 ExibirSabonete();
             }
         } while (!opcao.toUpperCase().equals("V"));
@@ -130,13 +133,14 @@ public class Main {
         System.out.println("--------------------------------------------------");
         System.out.println("O Que Deseja comprar?");
         System.out.println("[1] - Smaphone");
-        System.out.println("[2] - TV e Som");
-        System.out.println("[3] - Feijão");
-        System.out.println("[4] - Arroz");
-        System.out.println("[5] - Carne");
-        System.out.println("[6] - Creme Dental");
-        System.out.println("[7] - Shampoo");
-        System.out.println("[8] - Sabonete");
+        System.out.println("[2] - TV");
+        System.out.println("[3] - Som");
+        System.out.println("[4] - Feijão");
+        System.out.println("[5] - Arroz");
+        System.out.println("[6] - Carne");
+        System.out.println("[7] - Creme Dental");
+        System.out.println("[8] - Shampoo");
+        System.out.println("[9] - Sabonete");
         System.out.println("[V] - Voltar");
         System.out.println();
 
@@ -153,7 +157,7 @@ public class Main {
             for (int i = 0; i < smartPhones.size(); i++) {
                 Smartphone smartphone = smartPhones.get(i);
 
-                 {
+                {
                     smartphone.ExibirInformacoes("Smarphone [" + i + "]");
                 }
             }
@@ -166,26 +170,50 @@ public class Main {
 
     }
 
-    private static void ExibirTVeSom() {
-        TVeSom tveSomSelecionado = null;
+    private static void ExibirTV() {
+        TV tvSelecionado = null;
 
         do {
             System.out.println("--------------------------------------------------");
-            System.out.println("TV e Som");
+            System.out.println("TV");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < tveSom.size(); i++) {
-                TVeSom tvesom = tveSom.get(i);
+            for (int i = 0; i < tvs.size(); i++) {
+                TV tv = tvs.get(i);
 
                 {
-                    tvesom.ExibirInformacoes("TV e Som [" + i + "]");
+                    tv.ExibirInformacoes("TV [" + i + "]");
                 }
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            tveSomSelecionado = tveSom.get(Integer.parseInt(input.nextLine()));
+            tvSelecionado = tvs.get(Integer.parseInt(input.nextLine()));
 
-        } while (tveSomSelecionado.getTveSomSelecionado() == true);
+        } while (tvSelecionado.getTvSelecionado() == true);
+
+
+    }
+
+    private static void ExibirSom() {
+        Som somSelecionado = null;
+
+        do {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Som");
+            System.out.println("--------------------------------------------------");
+
+            for (int i = 0; i < soms.size(); i++) {
+                Som som = soms.get(i);
+
+                {
+                    som.ExibirInformacoes("Som [" + i + "]");
+                }
+            }
+
+            System.out.print("\nInforme a opção desejada: ");
+            somSelecionado = soms.get(Integer.parseInt(input.nextLine()));
+
+        } while (somSelecionado.getSomSelecionado() == true);
 
 
     }
@@ -338,8 +366,8 @@ public class Main {
         System.out.println("--------------------------------------------------");
         System.out.println("Produtos no Carrinho");
         System.out.println("--------------------------------------------------");
-        for (Produto produto : carrinho) {
-            produto.ExibirInformacoes();
+        for (Carrinho carrinho : carrinho) {
+            carrinho.ExibirInformacoes();
         }
     }
 

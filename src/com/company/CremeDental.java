@@ -4,9 +4,9 @@ public class CremeDental extends Higiene {
 
     private boolean cremeDentalSelecionado = false;
 
-    public CremeDental (){} //construtor vazio//
+    public CremeDental (){}
 
-    public CremeDental  (String tipo, String fabricante, float preco, String pesoLiquido, int codigoDeBarra){ //construtor herdado de higiene//
+    public CremeDental  (String tipo, String fabricante, float preco, String pesoLiquido, int codigoDeBarra){
         super(tipo, fabricante, preco, pesoLiquido, codigoDeBarra);}
 
     public void ExibirInformacoes() {

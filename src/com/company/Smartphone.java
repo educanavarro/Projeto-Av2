@@ -5,9 +5,9 @@ public class Smartphone extends Eletronico {
 
     private boolean phoneSelecionado = false;
 
-    public Smartphone() {} //construtor vazio//
+    public Smartphone() {}
 
-    public Smartphone (String tipo, String fabricante, float preco, String cor, String tamanho, int numeroDeSerie) { //construtor herdado de eletronico//
+    public Smartphone (String tipo, String fabricante, float preco, String cor, String tamanho, int numeroDeSerie) {
         super(tipo, fabricante, preco, cor, tamanho, numeroDeSerie);
     }
 
@@ -24,6 +24,11 @@ public class Smartphone extends Eletronico {
         System.out.println("Tamanho: " + this.getTamanho());
         System.out.println("Preço: R$ " + this.getPreco());
     }
+
+    public void chamada() {
+        this.getChamada();
+    }
+
 
     public String getChamada() {
         return chamada;

@@ -5,14 +5,15 @@ abstract class Produto {
     private String fabricante;
     private float preco;
 
-    public Produto() {
-    } //construtor vazio//
+    private boolean produtoSelecionado = false;
 
+    public Produto() {
+    }
     public Produto (String tipo, String fabricante, float preco) {
         this.tipo = tipo;
         this.fabricante = fabricante;
         this.preco = preco;
-    } //construtor generico//
+    }
 
     public void ExibirInformacoes() {
         ExibirInformacoes("Dados dos Produtos");
@@ -27,6 +28,12 @@ abstract class Produto {
         System.out.println("Preço: R$ " + this.getPreco());
     }
 
+    public boolean getProdutoSelecionado() {
+        return produtoSelecionado;
+    }
+    public void setProdutoSelecionado(boolean produtoSelecionado) {
+        this.produtoSelecionado = produtoSelecionado;
+    }
 
     public String getTipo() {
         return tipo;

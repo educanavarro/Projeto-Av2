@@ -4,9 +4,9 @@ public class Sabonete extends Higiene {
 
     private boolean saboneteSelecionado = false;
 
-    public Sabonete (){} //construtor vazio//
+    public Sabonete (){}
 
-    public Sabonete  (String tipo, String fabricante, float preco, String pesoLiquido, int codigoDeBarra){ //construtor herdado de higiene//
+    public Sabonete  (String tipo, String fabricante, float preco, String pesoLiquido, int codigoDeBarra){
         super(tipo, fabricante, preco, pesoLiquido, codigoDeBarra);}
 
     public void ExibirInformacoes() {

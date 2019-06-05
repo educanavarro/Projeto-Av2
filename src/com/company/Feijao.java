@@ -4,9 +4,9 @@ public class Feijao extends Alimento {
 
     private boolean feijaoSelecionado = false;
 
-    public Feijao(){} //construtor vazio//
+    public Feijao(){}
 
-    public Feijao (String tipo, String fabricante, float preco, String peso, int codigoDeBarra){ //construtor herdado de alimentos//
+    public Feijao (String tipo, String fabricante, float preco, String peso, int codigoDeBarra){
         super(tipo, fabricante, preco, peso, codigoDeBarra); }
 
     public void ExibirInformacoes() {

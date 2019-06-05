@@ -1,6 +1,6 @@
 package com.company;
 
-abstract class Eletronico extends Produto { //classe abstrata//
+abstract class Eletronico extends Produto {
 
     private String cor;
     private String tamanho;
@@ -26,9 +26,9 @@ abstract class Eletronico extends Produto { //classe abstrata//
         return numeroDeSerie;
     } */
 
-    public Eletronico() {} //construtor vazio//
+    public Eletronico() {}
 
-    public Eletronico (String tipo, String fabricante, float preco, String cor, String tamanho, int numeroDeSerie) { //construtor base de eletronicos//
+    public Eletronico (String tipo, String fabricante, float preco, String cor, String tamanho, int numeroDeSerie) {
         super(tipo, fabricante, preco);
         this.cor = cor;
         this.tamanho = tamanho;

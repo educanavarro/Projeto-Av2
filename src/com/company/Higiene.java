@@ -1,15 +1,15 @@
 package com.company;
 
-abstract class Higiene extends Produto{ //classe abstrata//
+abstract class Higiene extends Produto{
     private String nome;
     private String pesoLiquido;
     private int codigoDeBarra;
 
     private boolean higieneSelecionado = false;
 
-    public Higiene(){} //construtor vazio//
+    public Higiene(){}
 
-    public Higiene (String tipo, String fabricante, float preco, String pesoLiquido, int codigoDeBarra){ //construtor base de higiene//
+    public Higiene (String tipo, String fabricante, float preco, String pesoLiquido, int codigoDeBarra){
         super(tipo, fabricante, preco);
         this.pesoLiquido = pesoLiquido;
         this.codigoDeBarra = codigoDeBarra;
