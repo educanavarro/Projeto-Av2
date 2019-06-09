@@ -1,23 +1,12 @@
 package com.company;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    private static ArrayList<Produto> produtos = new ArrayList<>();
-    private static ArrayList<Carrinho> carrinho = new ArrayList<>();
-    private static ArrayList<Smartphone> smartPhones = new ArrayList<>();
-    private static ArrayList<TV> tvs = new ArrayList<>();
-    private static ArrayList<Som> soms = new ArrayList<>();
-    private static ArrayList<Feijao> feijoes = new ArrayList<>();
-    private static ArrayList<Carne> carnes = new ArrayList<>();
-    private static ArrayList<Arroz> arrozs = new ArrayList<>();
-    private static ArrayList<CremeDental> cremeDentals = new ArrayList<>();
-    private static ArrayList<Shampoo> shampoos = new ArrayList<>();
-    private static ArrayList<Sabonete> sabonetes = new ArrayList<>();
+    private static Estoque estoque = new Estoque();
+    private static Carrinho carrinho = new Carrinho();
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        CarregarDadosIniciais();
         String opcao = "";
 
         do {
@@ -31,11 +20,11 @@ public class Main {
             } else if (opcao.equals("2")) {
                 ExibirCarrinho();
             } else if (opcao.equals("3")) {
-                RemoverProduto();
+                carrinho.RemoverProduto(carrinho.getItem());
             } else if (opcao.equals("4")) {
-                LimparCarrinho();
+                carrinho.LimparCarrinho();
             } else if (opcao.equals("5")) {
-                FinalizarPedido();
+                carrinho.FinalizarPedido();
             }
         } while (!opcao.toUpperCase().equals("S"));
     }
@@ -54,49 +43,12 @@ public class Main {
         System.out.println();
     }
 
-    private static void CarregarDadosIniciais() {
-        smartPhones.add(new Smartphone("Smarphone", "Samsung", 1539.99f, "Preto", "155.6 x 75.8", 350128700));
-        smartPhones.add(new Smartphone("Smarphone", "Sony", 2497.75f, "Branco", "146 x 72", 357509532));
-        smartPhones.add(new Smartphone("Smarphone", "Asus", 1278.89f, "Vermelho", "155.4 x 75.2", 359000821));
-        smartPhones.add(new Smartphone("Smarphone", "Apple", 2878.99f, "Dourado", "138.4 x 67.3", 350759302));
-        smartPhones.add(new Smartphone("Smarphone", "Motorola", 1159.99f, "Preto", "144.3 x 73", 351070813));
-        smartPhones.add(new Smartphone("Smarphone", "Google", 1389.59f, "Branco", "143.8 x 69.5", 350891070));
-        smartPhones.add(new Smartphone("Smarphone", "Huawei", 2078.89f, "Preto", "152.9 x 72.7", 357801733));
-        smartPhones.add(new Smartphone("Smarphone", "Xiaomi", 2158.99f, "Preto", "154.9 x 74.8", 359011138));
-        smartPhones.add(new Smartphone("Smarphone", "Lenovo", 1688.57f, "Preto", "156.6 x 74.", 355570378));
-        smartPhones.add(new Smartphone("Smarphone", "LG", 1205.99f, "Branco", "148.9 x 71.9", 357008010));
-        tvs.add(new TV("TV", "Sony", 1849.99f, "Preto", "63 x 97", 133839782));
-        tvs.add(new TV("TV", "LG", 1994.99f, "Preto", "71 x 113", 133718358));
-        tvs.add(new TV("TV", "Samsung", 1799.98f, "Preto", "63,6 x 97", 134240667));
-        tvs.add(new TV("TV", "Toshiba", 861.79f, "Preto", "54 x 85,2", 133839782));
-        tvs.add(new TV("TV", "Philips", 1329.89f, "Preto", "96,9 x 56,2", 133807721));
-        soms.add(new Som("Som", "Sony", 1650.88f, "Azul", "39 x 68", 43925375));
-        soms.add(new Som("Som", "LG", 2583.98f, "Preto", "65 x 45.7", 26661992));
-        soms.add(new Som("Som", "JBL", 1649.50f, "Preto", "25,45 x 45,85", 31772866));
-        soms.add(new Som("Som", "Panasonic", 861.00f, "Preto", "50 x 83", 49370784));
-        soms.add(new Som("Som", "Philco", 540.00f, "Preto", "28  x 31", 56603725));
-        feijoes.add(new Feijao("Feijão", "Turquesa", 3.99f, "1 KG", 531253776));
-        feijoes.add(new Feijao("Feijão", "Kicaldo", 6.99f, "1 KG", 490157009));
-        arrozs.add(new Arroz("Arroz Integral", "Tio João", 4.75f, "1 KG", 107998509));
-        arrozs.add(new Arroz("Arroz", "Biju", 3.99f, "1 KG", 100709348));
-        carnes.add(new Carne("Carne", "Maturatta", 19.98f, "1 KG", 503521587));
-        carnes.add(new Carne("Carne", "Masterboi", 17.98f, "1 KG", 509070508));
-        cremeDentals.add(new CremeDental("Creme Dental", "Colgate", 5.39f, "70g", 860215789));
-        cremeDentals.add(new CremeDental("Creme Dental", "Sorriso", 5.59f, "70g", 897008905));
-        shampoos.add(new Shampoo("Shampoo", "Pantene", 9.15f, "175ml", 707094307));
-        shampoos.add(new Shampoo("Shampoo", "Palmolive", 17.36f, "200ml", 750975122));
-        sabonetes.add(new Sabonete("Sabonete", "Dove", 1.99f, "90g", 670775210));
-        sabonetes.add(new Sabonete("Sabonete", "Nivea", 1.89f, "90g", 400580853));
-    }
-
     private static void ComprarProduto() {
-        if (produtos.size() >= 10) {
+        if (carrinho.getProdutos().size() >= 10) {
             System.out.println("Quantidade máxima de produtos excedido!");
             input.nextLine();
             return;
         }
-        Carrinho listaDeCompras = new Carrinho();
-        CarregarDadosIniciais();
         String opcao = "";
 
         do {
@@ -129,7 +81,7 @@ public class Main {
 
     private static void ExibirMenuDeCompras() {
         System.out.println("--------------------------------------------------");
-        System.out.println("Carrinho de Compras");
+        System.out.println("Produtos Disponíveis");
         System.out.println("--------------------------------------------------");
         System.out.println("O Que Deseja comprar?");
         System.out.println("[1] - Smaphone");
@@ -154,8 +106,8 @@ public class Main {
             System.out.println("Smarphones");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < smartPhones.size(); i++) {
-                Smartphone smartphone = smartPhones.get(i);
+            for (int i = 0; i < estoque.getSmartphones().size(); i++) {
+                Smartphone smartphone = estoque.getSmartphones().get(i);
 
                 {
                     smartphone.ExibirInformacoes("Smarphone [" + i + "]");
@@ -163,11 +115,12 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            smartphoneSelecionado = smartPhones.get(Integer.parseInt(input.nextLine()));
+            smartphoneSelecionado = estoque.getSmartphones().get(Integer.parseInt(input.nextLine()));
+
 
         } while (smartphoneSelecionado.getPhoneSelecionado() == true);
 
-
+        carrinho.AdicionarProduto(smartphoneSelecionado);
     }
 
     private static void ExibirTV() {
@@ -178,8 +131,8 @@ public class Main {
             System.out.println("TV");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < tvs.size(); i++) {
-                TV tv = tvs.get(i);
+            for (int i = 0; i < estoque.getTVs().size(); i++) {
+                TV tv = estoque.getTVs().get(i);
 
                 {
                     tv.ExibirInformacoes("TV [" + i + "]");
@@ -187,11 +140,11 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            tvSelecionado = tvs.get(Integer.parseInt(input.nextLine()));
+            tvSelecionado = estoque.getTVs().get(Integer.parseInt(input.nextLine()));
 
         } while (tvSelecionado.getTvSelecionado() == true);
 
-
+        carrinho.AdicionarProduto(tvSelecionado);
     }
 
     private static void ExibirSom() {
@@ -202,8 +155,8 @@ public class Main {
             System.out.println("Som");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < soms.size(); i++) {
-                Som som = soms.get(i);
+            for (int i = 0; i < estoque.getSons().size(); i++) {
+                Som som = estoque.getSons().get(i);
 
                 {
                     som.ExibirInformacoes("Som [" + i + "]");
@@ -211,11 +164,11 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            somSelecionado = soms.get(Integer.parseInt(input.nextLine()));
+            somSelecionado = estoque.getSons().get(Integer.parseInt(input.nextLine()));
 
         } while (somSelecionado.getSomSelecionado() == true);
 
-
+        carrinho.AdicionarProduto(somSelecionado);
     }
 
     private static void ExibirFeijao() {
@@ -226,8 +179,8 @@ public class Main {
             System.out.println("Feijão");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < feijoes.size(); i++) {
-                Feijao feijao = feijoes.get(i);
+            for (int i = 0; i < estoque.getFeijoes().size(); i++) {
+                Feijao feijao = estoque.getFeijoes().get(i);
 
                 {
                     feijao.ExibirInformacoes("Feijão [" + i + "]");
@@ -235,11 +188,11 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            feijaoSelecionado = feijoes.get(Integer.parseInt(input.nextLine()));
+            feijaoSelecionado = estoque.getFeijoes().get(Integer.parseInt(input.nextLine()));
 
         } while (feijaoSelecionado.getFeijaoSelecionado() == true);
 
-
+        carrinho.AdicionarProduto(feijaoSelecionado);
     }
 
     private static void ExibirArroz() {
@@ -250,8 +203,8 @@ public class Main {
             System.out.println("Arroz");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < arrozs.size(); i++) {
-                Arroz arroz = arrozs.get(i);
+            for (int i = 0; i < estoque.getArroz().size(); i++) {
+                Arroz arroz = estoque.getArroz().get(i);
 
                 {
                     arroz.ExibirInformacoes("Arroz [" + i + "]");
@@ -259,11 +212,11 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            arrozSelecionado = arrozs.get(Integer.parseInt(input.nextLine()));
+            arrozSelecionado = estoque.getArroz().get(Integer.parseInt(input.nextLine()));
 
         } while (arrozSelecionado.getArrozSelecionado() == true);
 
-
+        carrinho.AdicionarProduto(arrozSelecionado);
     }
 
     private static void ExibirCarne() {
@@ -274,8 +227,8 @@ public class Main {
             System.out.println("Carnes");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < carnes.size(); i++) {
-                Carne carne = carnes.get(i);
+            for (int i = 0; i < estoque.getCarnes().size(); i++) {
+                Carne carne = estoque.getCarnes().get(i);
 
                 {
                     carne.ExibirInformacoes("Carnes [" + i + "]");
@@ -283,11 +236,11 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            carneSelecionado = carnes.get(Integer.parseInt(input.nextLine()));
+            carneSelecionado = estoque.getCarnes().get(Integer.parseInt(input.nextLine()));
 
         } while (carneSelecionado.getCarneSelecionado() == true);
 
-
+        carrinho.AdicionarProduto(carneSelecionado);
     }
 
     private static void ExibirCremeDental() {
@@ -298,8 +251,8 @@ public class Main {
             System.out.println("Creme Dental");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < cremeDentals.size(); i++) {
-                CremeDental cremeDental = cremeDentals.get(i);
+            for (int i = 0; i < estoque.getCremesDentais().size(); i++) {
+                CremeDental cremeDental = estoque.getCremesDentais().get(i);
 
                 {
                     cremeDental.ExibirInformacoes("Creme Dental [" + i + "]");
@@ -307,11 +260,11 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            cremeDentalSelecionado = cremeDentals.get(Integer.parseInt(input.nextLine()));
+            cremeDentalSelecionado = estoque.getCremesDentais().get(Integer.parseInt(input.nextLine()));
 
         } while (cremeDentalSelecionado.getCremeDentalSelecionado() == true);
 
-
+        carrinho.AdicionarProduto(cremeDentalSelecionado);
     }
 
     private static void ExibirShampoo() {
@@ -322,8 +275,8 @@ public class Main {
             System.out.println("Shampoo");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < shampoos.size(); i++) {
-                Shampoo shampoo = shampoos.get(i);
+            for (int i = 0; i < estoque.getShampoos().size(); i++) {
+                Shampoo shampoo = estoque.getShampoos().get(i);
 
                 {
                     shampoo.ExibirInformacoes("Shampoo [" + i + "]");
@@ -331,11 +284,11 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            shampooSelecionado = shampoos.get(Integer.parseInt(input.nextLine()));
+            shampooSelecionado = estoque.getShampoos().get(Integer.parseInt(input.nextLine()));
 
         } while (shampooSelecionado.getShampooSelecionado() == true);
 
-
+        carrinho.AdicionarProduto(shampooSelecionado);
     }
 
     private static void ExibirSabonete() {
@@ -346,8 +299,8 @@ public class Main {
             System.out.println("Sabonete");
             System.out.println("--------------------------------------------------");
 
-            for (int i = 0; i < sabonetes.size(); i++) {
-                Sabonete sabonete = sabonetes.get(i);
+            for (int i = 0; i < estoque.getSabonetes().size(); i++) {
+                Sabonete sabonete = estoque.getSabonetes().get(i);
 
                 {
                     sabonete.ExibirInformacoes("Sabonete [" + i + "]");
@@ -355,32 +308,22 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
-            saboneteSelecionado = sabonetes.get(Integer.parseInt(input.nextLine()));
+            saboneteSelecionado = estoque.getSabonetes().get(Integer.parseInt(input.nextLine()));
 
         } while (saboneteSelecionado.getSaboneteSelecionado() == true);
 
-
+        carrinho.AdicionarProduto(saboneteSelecionado);
     }
 
     private static void ExibirCarrinho() {
         System.out.println("--------------------------------------------------");
         System.out.println("Produtos no Carrinho");
         System.out.println("--------------------------------------------------");
-        for (Carrinho carrinho : carrinho) {
-            carrinho.ExibirInformacoes();
-        }
-    }
 
-    private static void RemoverProduto() {
-    }
-
-    private static void LimparCarrinho() {
-    }
-
-    private static void FinalizarPedido() {
-    }
-
+        for (Produto produto : carrinho.getProdutos()) {
+            produto.ExibirInformacoes();
         }
 
+    }
 
-
+}

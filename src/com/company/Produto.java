@@ -1,11 +1,10 @@
 package com.company;
 
-abstract class Produto {
+public abstract class Produto {
     private String tipo;
     private String fabricante;
     private float preco;
 
-    private boolean produtoSelecionado = false;
 
     public Produto() {
     }
@@ -28,12 +27,6 @@ abstract class Produto {
         System.out.println("Preço: R$ " + this.getPreco());
     }
 
-    public boolean getProdutoSelecionado() {
-        return produtoSelecionado;
-    }
-    public void setProdutoSelecionado(boolean produtoSelecionado) {
-        this.produtoSelecionado = produtoSelecionado;
-    }
 
     public String getTipo() {
         return tipo;

@@ -1,11 +1,10 @@
 package com.company;
 
-abstract class Higiene extends Produto{
+public abstract class Higiene extends Produto{
     private String nome;
     private String pesoLiquido;
     private int codigoDeBarra;
 
-    private boolean higieneSelecionado = false;
 
     public Higiene(){}
 
@@ -36,10 +35,4 @@ abstract class Higiene extends Produto{
         this.codigoDeBarra = codigoDeBarra;
     }
 
-    public boolean getHigieneSelecionado() {
-        return higieneSelecionado;
-    }
-    public void setHigieneSelecionado(boolean higieneSelecionado) {
-        this.higieneSelecionado = higieneSelecionado;
-    }
 }

@@ -1,6 +1,6 @@
 package com.company;
 
-abstract class Alimento extends Produto {
+public abstract class Alimento extends Produto {
     private String peso;
     private int codigoDeBarra;
 
