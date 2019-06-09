@@ -45,7 +45,7 @@ public class Main {
 
     private static void ComprarProduto() {
         if (carrinho.getProdutos().size() >= 10) {
-            System.out.println("Quantidade máxima de produtos excedido!");
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
             input.nextLine();
             return;
         }
@@ -80,6 +80,10 @@ public class Main {
 
 
     private static void ExibirMenuDeCompras() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         System.out.println("--------------------------------------------------");
         System.out.println("Produtos Disponíveis");
         System.out.println("--------------------------------------------------");
@@ -99,8 +103,11 @@ public class Main {
     }
 
     private static void ExibirSmarphones() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         Smartphone smartphoneSelecionado = null;
-
         do {
             System.out.println("--------------------------------------------------");
             System.out.println("Smarphones");
@@ -115,6 +122,7 @@ public class Main {
             }
 
             System.out.print("\nInforme a opção desejada: ");
+
             smartphoneSelecionado = estoque.getSmartphones().get(Integer.parseInt(input.nextLine()));
 
 
@@ -124,6 +132,10 @@ public class Main {
     }
 
     private static void ExibirTV() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         TV tvSelecionado = null;
 
         do {
@@ -148,6 +160,10 @@ public class Main {
     }
 
     private static void ExibirSom() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         Som somSelecionado = null;
 
         do {
@@ -172,6 +188,10 @@ public class Main {
     }
 
     private static void ExibirFeijao() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         Feijao feijaoSelecionado = null;
 
         do {
@@ -196,6 +216,10 @@ public class Main {
     }
 
     private static void ExibirArroz() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         Arroz arrozSelecionado = null;
 
         do {
@@ -220,6 +244,10 @@ public class Main {
     }
 
     private static void ExibirCarne() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         Carne carneSelecionado = null;
 
         do {
@@ -244,6 +272,10 @@ public class Main {
     }
 
     private static void ExibirCremeDental() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         CremeDental cremeDentalSelecionado = null;
 
         do {
@@ -268,6 +300,10 @@ public class Main {
     }
 
     private static void ExibirShampoo() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         Shampoo shampooSelecionado;
 
         do {
@@ -292,6 +328,10 @@ public class Main {
     }
 
     private static void ExibirSabonete() {
+        if (carrinho.getProdutos().size() >= 10) {
+            System.out.println("Quantidade máxima de produtos excedido! Aperte 'V' para voltar");
+            return;
+        }
         Sabonete saboneteSelecionado = null;
 
         do {
@@ -323,7 +363,16 @@ public class Main {
         for (Produto produto : carrinho.getProdutos()) {
             produto.ExibirInformacoes();
         }
+        float valorTotal = 0;
+
+        for (Produto valor : carrinho.getProdutos()) {
+            valorTotal += valor.getPreco();
+        }
+
+        System.out.println("--------------------------------------------------");
+        System.out.println("Valor total R$: " + valorTotal);
+        System.out.println("--------------------------------------------------");
+    }
 
     }
 
-}
