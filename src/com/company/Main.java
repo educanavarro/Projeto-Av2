@@ -370,7 +370,7 @@ public class Main {
         }
 
         System.out.println("--------------------------------------------------");
-        System.out.println("Valor total R$: " + valorTotal);
+        System.out.println("Valor total R$: " + String.format(java.util.Locale.US, "%.2f", valorTotal));
         System.out.println("--------------------------------------------------");
     }
 

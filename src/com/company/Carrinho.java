@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Carrinho {
     private int item;
+
     public Scanner input = new Scanner(System.in);
 
     private static ArrayList<Produto> produtos = new ArrayList<>();
@@ -21,27 +22,32 @@ public class Carrinho {
     }
 
     public void RemoverProduto(int item) {
-        this.produtos.remove(item);
         this.item = item;
-        System.out.println("--------------------------------------------------");
-        System.out.println("Produtos no Carrinho");
-        System.out.println("--------------------------------------------------");
-        for (int i = 0; i < produtos.size() ; i++) {
-            Produto produto = getProdutos().get(i);
+        if (this.produtos.size() == 0) {
+            System.out.println("Carrinho vazio");
+            return;
+        } else {
 
-            {
-                produto.ExibirInformacoes("Produto [" + i + "]");
+            System.out.println("--------------------------------------------------");
+            System.out.println("Produtos no Carrinho");
+            System.out.println("--------------------------------------------------");
+            for (int i = 0; i < produtos.size(); i++) {
+                Produto produto = getProdutos().get(i);
+
+                {
+                    produto.ExibirInformacoes("Produto [" + i + "]");
+                }
             }
-
-        }
-        System.out.println("--------------------------------------------------");
-        System.out.println("Digite qual produto deseja remover: ");
-        System.out.println("--------------------------------------------------");
+            System.out.println("--------------------------------------------------");
+            System.out.println("Digite qual produto deseja remover: ");
+            System.out.println("--------------------------------------------------");
+            this.produtos.remove(item);
             input.nextLine();
-        System.out.println("--------------------------------------------------");
-        System.out.println("O produto, "+ getProdutos().size() +" foi removido do carrinho");
-        System.out.println("--------------------------------------------------");
+            System.out.println("--------------------------------------------------");
+            System.out.println("O produto foi removido do carrinho");
+            System.out.println("--------------------------------------------------");
         }
+    }
 
     public void LimparCarrinho() {
         this.produtos.clear();
@@ -57,7 +63,7 @@ public class Carrinho {
         }
 
         System.out.println("--------------------------------------------------");
-        System.out.println("Valor total R$: " + valorTotal);
+        System.out.println("Valor total R$: " + String.format(java.util.Locale.US, "%.2f", valorTotal));
         System.out.println("--------------------------------------------------");
         System.exit(0);
     }
