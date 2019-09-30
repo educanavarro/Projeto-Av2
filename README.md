@@ -1,1 +1,1 @@
-# Projeto Av2: Carrinho de Compras
+# Projeto AV2: Carrinho de Compras
